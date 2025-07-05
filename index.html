@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognition App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Digit Recognition</h1>
+            <p>Draw a digit (0-9) and see if the AI can recognize it!</p>
+        </header>
+
+        <main>
+            <div class="drawing-section">
+                <div class="canvas-container">
+                    <canvas id="canvas" width="280" height="280"></canvas>
+                    <div class="canvas-overlay">
+                        <div class="grid-overlay"></div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="clearBtn" class="btn btn-secondary">🗑️ Clear Canvas</button>
+                    <button id="predictBtn" class="btn btn-primary">🔮 Predict Digit</button>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Analyzing your drawing...</p>
+                </div>
+
+                <div id="result" class="result hidden">
+                    <div class="prediction-display">
+                        <h2>Prediction: <span id="predictedDigit">-</span></h2>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                        <p class="confidence-text">Confidence: <span id="confidenceText">0%</span></p>
+                    </div>
+
+                    <div class="probabilities">
+                        <h3>All Probabilities:</h3>
+                        <div class="probability-bars" id="probabilityBars"></div>
+                    </div>
+                </div>
+
+                <div id="error" class="error hidden">
+                    <p>❌ <span id="errorMessage">Something went wrong</span></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html> 
